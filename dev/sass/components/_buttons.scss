@@ -1,0 +1,29 @@
+// Affecte tous les boutons (classe .button)
+// -----------------------
+// type .look
+// HTML | <a href="#" class="button look">See our menu</a>
+// ┌──────────────┐
+// │ See our menu │
+// └──────────────┘
+// -----------------------
+// Type .go
+// HTML | <a href="#" class="button go">Our story</a>
+// Our story  →
+.button {
+    padding: $space calc(1em * 2);
+    display: block;
+    width: fit-content;
+    &.look {
+        color: $white;
+        background-color: $yellow;
+        @include hoverable($background: true);
+    }
+    &.go {
+        @include hoverable;
+        padding: calc(1em * 2) 0;
+        &::after {
+            content: '→';
+            padding-left: 1em;
+        }
+    }
+}

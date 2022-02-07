@@ -1,7 +1,68 @@
-main { // provisoire
-    height: 80vh;
-    background: url(../img/photos/home/hero-home.jpg) no-repeat center/cover;
-    * {
-        display: none;
+.three-elements {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    @include inner-spacing ($unit: 2);
+}
+
+.four-elements {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    @include inner-spacing ($unit: 2);
+}
+
+.destinations {
+    .img-wrapper {
+        position: relative;
+        div {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            color: $white;
+            display: flex;
+            @include inner-spacing ($unit: .5);
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        a {
+            background-color: $yellow;
+            display: block;
+            padding: calc($space * .25) calc($space * .75);
+            opacity: 0;
+            @include transition-eclair;
+        }
+        &:hover {
+            cursor: pointer;
+            a {
+                opacity: 1;
+            }
+        }
+    }
+}
+
+.prices {
+    background-image: url(../../img/graphics/world.png);
+    h3 {
+        @include inner-spacing;
+        border-bottom: 1px solid $yellow;
+    }
+    .price-table {
+        display: grid;
+        background-color: $white;
+        padding: 1.25em 0;
+        grid-template-columns: 77% 20%;
+        gap: .75em;
+        p, a {
+            line-height: 2em;
+        }
+        a {
+            font-weight: bold;
+            text-align: center;
+            background-color: $light;
+        }
     }
 }
