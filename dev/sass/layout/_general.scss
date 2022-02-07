@@ -1,0 +1,15 @@
+.wrapper {
+    margin: 0 auto;
+    width: 1140px;
+}
+
+.container {
+    &div {
+        margin: calc($space * 1) 0;
+        padding: 0 calc($space * 1);
+    }
+    &section {
+        margin: calc($space * 3) 0;
+        padding: 0 calc($space * 3);
+    }
+}

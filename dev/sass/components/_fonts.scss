@@ -1,0 +1,24 @@
+body {
+    h1, h2, h3, h4 {
+        font-family: 'Poppins', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-weight: 500;
+    }
+    p, a {
+        font-family: 'Poppins', Arial, Helvetica, sans-serif;
+        font-weight: 300;
+    }
+    a {
+        text-decoration: none;
+        text-transform: uppercase;
+        color: inherit;
+    }
+}
+
+// petit coeur qui vient remplacer le texte 💛
+span.heart {
+    font-size: 0;
+    &::before {
+        content: '\2764';
+        font-size: initial;
+    }
+}

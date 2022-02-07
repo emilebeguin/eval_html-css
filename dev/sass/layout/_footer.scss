@@ -1,0 +1,35 @@
+footer {
+    width: 100%;
+    background-color: $black;
+    color: $grey;
+    @include inner-spacing ($unit: 4);
+
+    // la section est en grid pour pouvoir s'empiler
+    &.info>* {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+    }
+    &.links>* {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row-reverse;
+    }
+    // typo du footer
+    h1, h2, h3, h4 {
+        color: $white;
+        text-transform: uppercase;
+    }
+    p, a {
+        @include inner-spacing;
+        text-transform: initial;
+        font-size: calc($font-elastic * .75);
+    }
+    .site-navigation {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(5, 1fr);
+        h3 {
+            grid-column: span 2;
+        }
+    }
+}
