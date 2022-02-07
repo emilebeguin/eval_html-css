@@ -1,0 +1,44 @@
+// galerie en grid comprenant 12 images
+// (s'il y en a plus elle ne les affiche pas)
+
+// galerie dans footer et sidenav
+.gallery {
+    .grid {
+        display: grid;
+        // ┌─┬─┬─┬─┐
+        // ├─┼─┼─┼─┤    2 lignes   3 colonnes
+        // └─┴─┴─┴─┘      
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        gap: calc($space * .75);
+        a {
+            display: block;
+            width: 100%;
+            overflow: hidden;
+            img {
+                display: block;
+                object-fit: cover;
+                width: 100%;
+            }
+            // cache les éléments après le 12e
+            &:nth-of-type(n+13) {
+                display: none;
+            }
+            // un overlay s'ajoute au hover
+            @include overlay-before (
+                $bg: $yellow,
+                $opacity: 0,
+                $z-index: 2
+                );
+            &::before {
+                @include transition-eclair ($duree: .2s);
+            }
+            &:hover {
+                
+                &::before {
+                    opacity: .6;
+                }
+            }
+        }
+    }
+}
