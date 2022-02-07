@@ -1,0 +1,25 @@
+.home {
+    .bg {
+        background-image: url(../img/photos/home/hero-home.jpg);
+        height: 100vh;
+    }
+}
+
+header {
+    @include overlay-after ($bg: $black, $opacity: .6);
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        color: $white;
+        height: 100%;
+        .title {
+            display: flex;
+            flex-direction: column;
+            width: 30%;
+            &>* {
+                margin: $space;
+            }
+        }
+    }
+}

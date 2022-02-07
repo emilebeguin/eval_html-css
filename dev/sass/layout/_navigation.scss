@@ -1,0 +1,29 @@
+nav {
+    position: fixed;
+    font-size: calc($font-elastic * .6);
+    color: $white;
+    width: 100%;
+    .social, .logo,
+    .user-actions, .site-navigation {
+        display: flex;
+        gap: $space;
+    }
+}
+
+.nav-row {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    &.upper {
+        text-transform: initial;
+        @include outer-spacing ($unit: 1)
+    }
+    &.highlight {
+        font-weight: 500;
+        background-color: rgba($color: $white, $alpha: .2);
+        @include outer-spacing ($unit: 1);
+        @include inner-spacing ($unit: 1);
+    }
+}
+

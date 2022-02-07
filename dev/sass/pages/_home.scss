@@ -1,102 +1,68 @@
-.home {
-    div.container, article, div.subsection, .bg.dark {
-        .title {
-            .super {
-                color: $red;
+.three-elements {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    @include inner-spacing ($unit: 2);
+}
+
+.four-elements {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    @include inner-spacing ($unit: 2);
+}
+
+.destinations {
+    .img-wrapper {
+        position: relative;
+        div {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            color: $white;
+            display: flex;
+            @include inner-spacing ($unit: .5);
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        a {
+            background-color: $yellow;
+            display: block;
+            padding: calc($space * .25) calc($space * .75);
+            opacity: 0;
+            @include transition-eclair;
+        }
+        &:hover {
+            cursor: pointer;
+            a {
+                opacity: 1;
             }
         }
     }
-    div.container, article, div.subsection {
-        // texte et image côte à côte
-        &.text-right, &.text-left {
-            align-items: center;
-            .text {
-                text-align: center;
-            }
-            .pic {
-                .soft {
-                    aspect-ratio: 1;
-                }
-            }
-        }
-        // texte en bas
-        &.text-below {
-            .text {
-                .title {
-                    align-items: flex-start;
-                    padding-left: 0;
-                    h1, h2, h3 {
-                        text-align: left;
-                    }
-                }
-            }
-            .pic {
-                .soft {
-                    aspect-ratio: 16/9;
-                }
-            }
-        }
-        // pour avoir un texte plus aéré
-        .text.aerie {
-            align-items: center;
-            p:not(.super) {
-                margin: 2.5em auto;
-            }
-        }
-        .pic {
-            .img-wrapper {
-                overflow: hidden;
-                img {
-                    @include transition-eclair;
-                }
-                &:hover {
-                    img {
-                        transform: scale(110%);
-                    }
-                }
-            }
-        }
+}
+
+.prices {
+    background-image: url(../../img/graphics/world.png);
+    h3 {
+        @include inner-spacing;
+        border-bottom: 1px solid $yellow;
     }
-    section {
-        // toutes les sections sont plus aérées
-        padding: calc($gap * 8);
-        @media screen and (max-width: $tablet) {
-            padding: calc($gap * 4);
+    .price-table {
+        display: grid;
+        background-color: $white;
+        padding: 1.25em 0;
+        grid-template-columns: 77% 20%;
+        gap: .75em;
+        p, a {
+            line-height: 2em;
         }
-        // évènements à venir
-        &.upcoming {
-            .side-ribbon {
-                background-color: rgba($color: $red, $alpha: .6);
-                color: $white;
-            }
-            .button {
-                text-align: left;
-            }
-        }
-        // réservation de tables
-        &.book-table {
-            .text-right, .text-left {
-                @include convert-to-vertical ($resize-items: full);
-                @media screen and (max-width: $small-screen) {
-                    .text {width: 100%;}
-                    .pic {width: 50%;}
-                }
-            }
-        }
-        // second backgroud parallax
-        &#discover-2 {
-            // cause d'étranges problèmes de hover
-            // @include overlay-before ($bg: $black);
-            .title {
-                z-index: 3;
-            }
-        }
-        // articles du blog
-        &.latest {
-            flex-wrap: wrap;
-            .title {
-                flex-basis: 100%;
-            }
+        a {
+            font-weight: bold;
+            text-align: center;
+            background-color: $light;
         }
     }
 }

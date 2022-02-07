@@ -5,8 +5,8 @@
     height: 500px;
     width: 100%;
     box-sizing: content-box;
-    border: calc($gap / 2) solid $white;
-    border-radius: $gap;
+    border: calc($space / 2) solid $white;
+    border-radius: $space;
     .gmap_canvas {
         overflow: hidden;
         background: none !important;

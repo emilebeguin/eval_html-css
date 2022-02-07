@@ -1,0 +1,53 @@
+footer {
+    width: 100%;
+    background-color: $black;
+    color: $grey;
+    @include inner-spacing ($unit: 4);
+    &:not(:last-of-type) { padding-bottom: 0; }
+    &:not(:first-of-type) { padding-top: 0; }
+    // la section est en grid pour pouvoir s'empiler
+    &.info>* {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: $space;
+    }
+    &.links>* {
+        @include inner-spacing ($unit: 2);
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row-reverse;
+        border-top: 1px solid $dark;
+        a, span {
+            color: $yellow;
+        }
+        .social {
+            display: flex;
+            gap: $space;
+        }
+    }
+    // typo du footer
+    h1, h2, h3, h4 {
+        color: $white;
+        text-transform: uppercase;
+        font-size: calc($title-elastic * .75);
+    }
+    p, a {
+        text-transform: initial;
+        font-size: calc($font-elastic * .75);
+    }
+    //  tout ce qui suit un h3 dans le footer
+    h3 + p, h3 + div {
+        @include inner-spacing ($unit: 1.75);
+    }
+    .site-navigation {
+        div {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(5, 1fr);
+            h3 {
+                grid-column: span 2;
+            }
+        }
+    }
+
+}

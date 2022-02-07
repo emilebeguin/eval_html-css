@@ -1,16 +1,17 @@
 // color palette
-$black: #222;
-$dark: #333;
-$grey: #999;
+$black: #011;
+$dark: #222;
+$grey: #444;
+$light: #eee;
 $white: #fff;
-$beige: #fed;
-$red: #e12;
+$yellow: #fb0;
 
 // layout measures
-$gap: 1rem;
+$space: 1rem;
 
 // font sizes
-$relative-title: calc(16px + .16vw);
+$font-elastic: calc(16px + .16vw);
+$title-elastic: calc(20px + .20vw);
 
 // responsive breakpoints
 $small-screen: 992px;
