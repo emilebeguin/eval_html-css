@@ -70,7 +70,7 @@ section.container  {
     @include inner-spacing ($unit: 2);
 }
 
-.img-right {
+.img-right, .img-left {
     .text-wrapper {
         padding: calc($space * 4);
         display: flex;
@@ -89,9 +89,15 @@ section.container  {
             }
         }
     }
-    .img-wrapper {
-        img {
-            width: 100%;
-        }
+}
+
+.img-wrapper {
+    img {
+        width: 100%;
     }
+}
+
+.comfort-reading {
+    color: $grey;
+    line-height: 1.5em;
 }

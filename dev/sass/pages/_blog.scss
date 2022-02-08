@@ -1,0 +1,98 @@
+main > .wrapper {
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    grid-template-areas:
+    "header header"
+    "main   aside"
+    ;
+}
+
+.blog {
+    .article {
+        margin-top: calc($space * 2);
+        display: grid;
+        grid-template-columns: 20% 1fr;
+        grid-auto-rows: max-content;
+        grid-template-areas:
+            "fimage  fimage"
+            "details  title  "
+            "details  intro  "
+            "quoted   quoted "
+        ;
+        .featured-image { grid-area: fimage; }
+        .details { grid-area: details; }
+        .article-title { grid-area: title; }
+        .intro { grid-area: intro; }
+        .quoted { grid-area: quoted; }
+        // détails sur l'article : auteur, nombre de vues, etc.
+        .tags {
+            a {
+                text-transform: unset;
+                display: inline;
+                border: 0;
+                padding: 0;
+                margin: 0;
+                &:not(:last-child):after {
+                    content: ',';
+                }
+            }
+        }
+        .details {
+            text-align: right;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            &>* {
+                margin: $space 0;
+            }
+            .author, .date, .views, .comments {
+                display: flex;
+                gap: $space;
+                &::after {
+                    font-family: FontAwesome;
+                }
+            }
+            .social {
+                width: 75%;
+            }
+            .author {
+                &::after { content: '\f2c0'; }
+            }
+            .date {
+                &::after { content: '\f073'; }
+            }
+            .views {
+                &::after { content: '\f06e'; }
+            }
+            .comments {
+                &::after { content: '\f0e5'; }
+            }
+        }
+        .article-content {
+            h2, h3, h4, p {
+                margin: $space;
+            }
+        }
+        .quoted {
+            background-color: $white;
+            padding: calc($space * 1.5);
+        }
+        :nth-of-type(n+6) {
+            grid-column: span 2;
+        }
+    }
+}
+
+main .social {
+    display: flex;
+    justify-content: space-between;
+    a {
+        @include hoverable($yellowify: true);
+    }
+}
+
+.featured-image {
+    img {
+        width: 100%;
+    }
+}

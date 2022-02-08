@@ -11,3 +11,7 @@
         @include hoverable ($background: true, $yellowify: true);
     }
 }
+
+.material-popout {
+    box-shadow: $medium 0px 8px 24px;
+}

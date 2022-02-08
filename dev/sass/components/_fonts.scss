@@ -31,3 +31,7 @@ h1 {
     text-transform: uppercase;
     font-size: calc($title-elastic * .65);
 }
+
+input::placeholder {
+    font-family: 'Poppins', FontAwesome;
+}
