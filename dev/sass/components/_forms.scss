@@ -4,10 +4,14 @@ form {
     position: relative;
     :nth-of-type(1) {flex-basis: 100%;}
     :nth-of-type(2) {flex-basis: 50px;}
-    input {
+    input, textarea {
         height: calc($space * 3);
-        background-color: $black;
-        border-color: $grey transparent $grey $grey;
+        background-color: transparent;
+        border-color:
+            rgba($color: $grey, $alpha: .4)
+            transparent
+            rgba($color: $grey, $alpha: .4)
+            rgba($color: $grey, $alpha: .4);
         padding: $space;
         &:focus {
             outline: 1px solid $yellow;
@@ -20,11 +24,23 @@ form {
         aspect-ratio: 1;
         background-color: $yellow;
         cursor: pointer;
-        text-indent: -99999px; // cache le texte
     }
     svg {
         position: absolute;
         width: 24px;
         right: 13px;
+    }
+}
+
+.blog {
+    .leave-a-comment {
+        form {
+            display: grid;
+            grid-template-columns: 50% 50%;
+            gap: $space;
+            .subject, .message, .submit {
+                grid-column: span 2;
+            }
+        }
     }
 }

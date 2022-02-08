@@ -1,15 +1,17 @@
-article {
-    .tags {
-        a {
-            display: inline-block;
-            width: fit-content;
-            padding: calc($space * .25) calc($space * .75);
-            border: 1px solid $light;
-            margin: calc($space * .75) calc($space * .25);
-            &:first-of-type {
-                margin-left: 0;
-            }
-            @include hoverable ($background: true, $yellowify: true);
+.tags {
+    a {
+        display: inline-block;
+        width: fit-content;
+        padding: calc($space * .25) calc($space * .75);
+        border: 1px solid $light;
+        margin: calc($space * .75) calc($space * .25);
+        &:first-of-type {
+            margin-left: 0;
         }
+        @include hoverable ($background: true, $yellowify: true);
     }
+}
+
+.material-popout {
+    box-shadow: $medium 0px 8px 24px;
 }

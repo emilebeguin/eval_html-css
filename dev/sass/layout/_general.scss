@@ -70,7 +70,7 @@ section.container  {
     @include inner-spacing ($unit: 2);
 }
 
-.img-right {
+.img-right, .img-left {
     .text-wrapper {
         padding: calc($space * 4);
         display: flex;
@@ -89,9 +89,28 @@ section.container  {
             }
         }
     }
-    .img-wrapper {
-        img {
-            width: 100%;
-        }
+}
+
+// images
+.img-wrapper {
+    img {
+        width: 100%;
     }
+}
+
+.featured-image {
+    img {
+        width: 100%;
+    }
+}
+
+// articles
+.comfort-reading {
+    color: $grey;
+    line-height: 1.5em;
+}
+
+.section-title {
+    text-align: center;
+    padding: $space;
 }

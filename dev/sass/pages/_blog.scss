@@ -1,0 +1,151 @@
+main > .wrapper {
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    grid-template-areas:
+    "featured   aside"
+    "post-nav   aside"
+    "comments   aside"
+    ;
+    aside { grid-area: aside; }
+    .article { grid-area: featured; }
+    .post-navigation { grid-area: post-nav; }
+    .article { grid-area: featured; }
+}
+
+.blog {
+    .article {
+        margin-top: calc($space * 2);
+        display: grid;
+        grid-template-columns: 20% 1fr;
+        grid-auto-rows: max-content;
+        grid-template-areas:
+            "fimage  fimage"
+            "details  title  "
+            "details  intro  "
+            "quoted   quoted "
+        ;
+        .featured-image { grid-area: fimage; }
+        .details { grid-area: details; }
+        .article-title { grid-area: title; }
+        .intro { grid-area: intro; }
+        .quoted { grid-area: quoted; }
+        // détails sur l'article : auteur, nombre de vues, etc.
+        .tags {
+            a {
+                text-transform: unset;
+                display: inline;
+                border: 0;
+                padding: 0;
+                margin: 0;
+                &:not(:last-child):after {
+                    content: ',';
+                }
+            }
+        }
+        .details {
+            text-align: right;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            &>* {
+                margin: $space 0;
+            }
+            .author, .date, .views, .comments {
+                display: flex;
+                gap: $space;
+                &::after {
+                    font-family: FontAwesome;
+                }
+            }
+            .social {
+                width: 75%;
+            }
+            .author {
+                &::after { content: '\f2c0'; }
+            }
+            .date {
+                &::after { content: '\f073'; }
+            }
+            .views {
+                &::after { content: '\f06e'; }
+            }
+            .comments {
+                &::after { content: '\f0e5'; }
+            }
+        }
+        .article-content {
+            h2, h3, h4, p {
+                margin: $space;
+            }
+        }
+        .quoted {
+            background-color: $white;
+            padding: calc($space * 1.5);
+        }
+        :nth-of-type(n+6) {
+            grid-column: span 2;
+        }
+    }
+}
+.post-navigation {
+    height: fit-content;
+    div[onclick="toPrev()"], div[onclick="toNext()"] {
+        cursor: pointer;
+        display: flex;
+        &.next {
+            flex-direction: row-reverse;
+        }
+        .img-wrapper {
+            position: relative;
+            width: calc($space * 5);
+            &::after {
+                font-family: FontAwesome;
+                position: absolute;
+                font-size: calc($font-elastic * 1.5);
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                color: $white;
+                opacity: 0;
+                @include transition-eclair;
+            }
+        }
+        &.prev .img-wrapper::after { content: '\f060';}
+        &.next .img-wrapper::after { content: '\f061';}
+        &.prev:hover .img-wrapper::after { opacity: 1;}
+        &.next:hover .img-wrapper::after { opacity: 1;}
+        .text-wrapper {
+            margin: calc($space * 1);
+            height: 100%;
+            .super {
+                margin-bottom: calc($space * 1.25);
+            }
+        }
+    }
+}
+
+.comments {
+    .comment {
+        grid-column: span 3;
+        .comment {
+            padding-left: calc($space * 2);
+        }
+        display: grid;
+        grid-template-columns: calc($space * 5) 75% 1fr;
+        .text-wrapper {
+            padding: calc($space * .5) calc($space);
+            .date {
+                color: $medium;
+                margin-bottom: calc($space * 1.75);
+            }
+        }
+    }
+}
+
+main .social {
+    display: flex;
+    justify-content: space-between;
+    a {
+        @include hoverable($yellowify: true);
+    }
+}
