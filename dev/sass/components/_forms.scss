@@ -6,8 +6,12 @@ form {
     :nth-of-type(2) {flex-basis: 50px;}
     input {
         height: calc($space * 3);
-        background-color: $black;
-        border-color: $grey transparent $grey $grey;
+        background-color: transparent;
+        border-color:
+            rgba($color: $grey, $alpha: .4)
+            transparent
+            rgba($color: $grey, $alpha: .4)
+            rgba($color: $grey, $alpha: .4);
         padding: $space;
         &:focus {
             outline: 1px solid $yellow;
@@ -20,7 +24,6 @@ form {
         aspect-ratio: 1;
         background-color: $yellow;
         cursor: pointer;
-        text-indent: -99999px; // cache le texte
     }
     svg {
         position: absolute;
