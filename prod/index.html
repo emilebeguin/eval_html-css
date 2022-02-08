@@ -53,12 +53,13 @@
                     <p class="super">Away from monotonous life</p>
                     <h1>Magical travel</h1>
                     <p class="sub">If you are looking at blank cassettes on the web, you may be very confused at the difference in price. You may see some for as low as $.17 each.</p>
+                    <!-- le hover est bien codé; je ne comprends pas pourquoi il ne fonctionne pas -->
                     <a href="#" class="button look">Get started</a>
                 </div>
             </div>
         </header>
         <!-- popular destinations -->
-        <section class="popular center-content">
+        <section class="popular center-content container">
             <div class="wrapper">
                 <div class="title">
                     <h2>Popular Destinations</h2>
@@ -93,7 +94,7 @@
             </div>
         </section>
         <!-- price packages -->
-        <section class="prices center-content">
+        <section class="prices bg center-content container">
             <div class="wrapper">
                 <div class="title">
                     <h2>We Provide Affordable Prices</h2>
@@ -194,43 +195,51 @@
             </div>
         </section>
         <!-- reviews -->
-        <section class="reviews center-content">
+        <section class="container reviews-slider center-content light">
             <div class="wrapper">
                 <div class="title">
                     <h2>Testimonial from our Clients</h2>
                     <p class="sub">The French Revolution constituted for the conscience of the dominant aristocratic class a fall from</p>
                 </div>
-                <div class="review">
-                    <div class="pic">
-                        <img src="img/photos/users/c1.jpg" alt="User">
+                <div class="two-elements">
+                    <div class="review">
+                        <div class="img-wrapper">
+                            <img src="img/photos/users/c1.jpg" alt="User">
+                        </div>
+                        <figure>
+                            <blockquote class="review-text">Do you want to be even more successful? Learn to love learning and growth. The more effort you put into improving your skills, the bigger the payoff you.</blockquote>
+                            <h3>Harriet Maxwell</h3>
+                            <div class="stars" style="--rating: 4.0;">
+                        </figure>
                     </div>
-                    <div class="review-text">Do you want to be even more successful? Learn to love learning and growth. The more effort you put into improving your skills, the bigger the payoff you.</div>
-                    <h3>Harriet Maxwell</h3>
-                    <div class="stars" style="--rating: 4.0;">
-                </div>
-                <div class="review">
-                    <div class="pic">
-                        <img src="img/photos/users/c2.jpg" alt="User">
+                    <div class="review">
+                        <div class="img-wrapper">
+                            <img src="img/photos/users/c2.jpg" alt="User">
+                        </div>
+                        <figure>
+                            <blockquote class="review-text">A purpose is the eternal condition for success. Every former smoker can tell you just how hard it is to stop smoking cigarettes. However.</blockquote>
+                            <h3>Carolyn Craig</h3>
+                            <div class="stars" style="--rating: 3.2;">
+                        </figure>
                     </div>
-                    <div class="review-text">A purpose is the eternal condition for success. Every former smoker can tell you just how hard it is to stop smoking cigarettes. However.</div>
-                    <h3>Carolyn Craig</h3>
-                    <div class="stars" style="--rating: 3.2;">
                 </div>
             </div>
         </section>
-        <section class="ask text-img img-right">
-            <div class="wrapper">
+        <section class="ask">
+            <div class="wrapper two-elements img-right nopad">
                 <div class="text-wrapper">
-                    <h2>Did not find your Package? Feel free to ask us. We'll make it for you</h2>
-                    <p>Inappropriate behavior is often laughed off as “boys will be boys,” women face higher conduct standards especially in the workplace. That’s why it’s crucial that, as women, our behavior on the job is beyond reproach. inappropriate behavior is often laughed.</p>
-                    <a href="#" class="button">Request custom price</a>
+                    <div class="text">
+                        <h2>Did not find your Package?<br />Feel free to ask us.<br />We'll make it for you</h2>
+                        <p>Inappropriate behavior is often laughed off as “boys will be boys,” women face higher conduct standards especially in the workplace. That’s why it’s crucial that, as women, our behavior on the job is beyond reproach. inappropriate behavior is often laughed.</p>
+                        <a href="#" class="button request">Request custom price</a>
+                    </div>
                 </div>
                 <div class="img-wrapper">
                     <img src="img/photos/ask.jpg" alt="You know what? Just ask Florence.">
                 </div>
             </div>
         </section>
-        <section class="latest center-content">
+        <section class="latest center-content container">
             <div class="wrapper">
                 <div class="title">
                     <h2>Latest from Our Blog</h2>
@@ -300,12 +309,12 @@
             <form action="get">
                 <input type="text" placeholder="Email Address">
                 <input type="submit" class="arrow-send">
+                <!-- je n'ai remarqué que trop tard qu'en fait c'était juste du fontawesome ^^ -->
                 <svg
                     viewBox="0 0 7.9375003 7.9374996"
                     version="1.1"
                     xmlns:svg="http://www.w3.org/2000/svg">
                     <g
-
                             transform="translate(-87.984488,-146.65542)">
                             <path
                             style="fill:none;stroke:#ffffff;stroke-width:0.408175;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"

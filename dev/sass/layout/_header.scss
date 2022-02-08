@@ -1,12 +1,16 @@
-.home {
-    .bg {
-        background-image: url(../img/photos/home/hero-home.jpg);
-        height: 100vh;
-    }
+.home header.bg {
+    background-image: url(../img/photos/home/hero-home.jpg);
+    height: 100vh;
 }
 
+.blog header.bg{
+    background-image: url(../img/photos/blog/hero-blog.jpg);
+    height: 35vh;
+}
+
+
 header {
-    @include overlay-after ($bg: $black, $opacity: .6);
+    @include overlay-before ($bg: $black, $opacity: .6, $z-index: -3);
     .wrapper {
         display: flex;
         flex-direction: column;

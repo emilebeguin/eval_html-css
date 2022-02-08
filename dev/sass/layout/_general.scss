@@ -3,17 +3,27 @@
     width: 1140px;
 }
 
-.container {
-    &div {
-        margin: calc($space * 1) 0;
-        padding: 0 calc($space * 1);
-    }
-    &section {
-        margin: calc($space * 3) 0;
-        padding: 0 calc($space * 3);
-    }
+// ajoute du padding dans les sections
+// attention les wrappers comptent dedans
+div.container  {
+    padding: 0 calc($space * 1);
+}
+section.container  {
+    padding: calc($space * 6) calc($space * 6);
 }
 
+// ajoute du padding
+.pad {
+    padding: calc($space * 3);
+}
+
+// contredit certains paddings et margins pour certains wrappers
+.wrapper.nopad {
+    padding-bottom: 0;
+    padding-top: 0;
+}
+
+// toute section dont le contenu est centré
 .center-content > .wrapper {
     display: flex;
     flex-direction: column;
@@ -24,8 +34,64 @@
     }
 }
 
+// différentes couleurs de fond
+.light { background-color: $light; }
+
+// toute section avec une image en background
 .bg {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+}
+
+// classes d'organisation visuelle des éléments
+// s'appliquent sur le wrapper
+.two-elements {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    &>* {
+        width: 50%;
+    }
+    @include inner-spacing ($unit: 2);
+}
+
+.three-elements {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    @include inner-spacing ($unit: 2);
+}
+
+.four-elements {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    @include inner-spacing ($unit: 2);
+}
+
+.img-right {
+    .text-wrapper {
+        padding: calc($space * 4);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        .text {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: $space;
+            .button {
+                align-self: center;
+                margin: calc($space * 3);
+            }
+        }
+    }
+    .img-wrapper {
+        img {
+            width: 100%;
+        }
+    }
 }
