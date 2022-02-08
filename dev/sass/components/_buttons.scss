@@ -23,4 +23,10 @@
         color: $white;
         background-color: $black;
     }
+    &.reply {
+        @include hoverable($background: true, $yellowify: true);
+        color: $black;
+        background-color: $white;
+        border: 1px solid $light;
+    }
 }

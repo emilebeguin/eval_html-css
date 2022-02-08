@@ -91,13 +91,26 @@ section.container  {
     }
 }
 
+// images
 .img-wrapper {
     img {
         width: 100%;
     }
 }
 
+.featured-image {
+    img {
+        width: 100%;
+    }
+}
+
+// articles
 .comfort-reading {
     color: $grey;
     line-height: 1.5em;
+}
+
+.section-title {
+    text-align: center;
+    padding: $space;
 }

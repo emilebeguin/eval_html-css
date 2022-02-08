@@ -2,9 +2,14 @@ main > .wrapper {
     display: grid;
     grid-template-columns: 1fr 350px;
     grid-template-areas:
-    "header header"
-    "main   aside"
+    "featured   aside"
+    "post-nav   aside"
+    "comments   aside"
     ;
+    aside { grid-area: aside; }
+    .article { grid-area: featured; }
+    .post-navigation { grid-area: post-nav; }
+    .article { grid-area: featured; }
 }
 
 .blog {
@@ -82,17 +87,65 @@ main > .wrapper {
         }
     }
 }
+.post-navigation {
+    height: fit-content;
+    div[onclick="toPrev()"], div[onclick="toNext()"] {
+        cursor: pointer;
+        display: flex;
+        &.next {
+            flex-direction: row-reverse;
+        }
+        .img-wrapper {
+            position: relative;
+            width: calc($space * 5);
+            &::after {
+                font-family: FontAwesome;
+                position: absolute;
+                font-size: calc($font-elastic * 1.5);
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                color: $white;
+                opacity: 0;
+                @include transition-eclair;
+            }
+        }
+        &.prev .img-wrapper::after { content: '\f060';}
+        &.next .img-wrapper::after { content: '\f061';}
+        &.prev:hover .img-wrapper::after { opacity: 1;}
+        &.next:hover .img-wrapper::after { opacity: 1;}
+        .text-wrapper {
+            margin: calc($space * 1);
+            height: 100%;
+            .super {
+                margin-bottom: calc($space * 1.25);
+            }
+        }
+    }
+}
+
+.comments {
+    .comment {
+        grid-column: span 3;
+        .comment {
+            padding-left: calc($space * 2);
+        }
+        display: grid;
+        grid-template-columns: calc($space * 5) 75% 1fr;
+        .text-wrapper {
+            padding: calc($space * .5) calc($space);
+            .date {
+                color: $medium;
+                margin-bottom: calc($space * 1.75);
+            }
+        }
+    }
+}
 
 main .social {
     display: flex;
     justify-content: space-between;
     a {
         @include hoverable($yellowify: true);
-    }
-}
-
-.featured-image {
-    img {
-        width: 100%;
     }
 }
