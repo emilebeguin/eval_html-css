@@ -18,12 +18,9 @@
         background-color: $yellow;
         @include hoverable($background: true);
     }
-    &.go {
-        @include hoverable;
-        padding: calc(1em * 2) 0;
-        &::after {
-            content: '→';
-            padding-left: 1em;
-        }
+    &.request {
+        @include hoverable($background: true, $yellowify: true);
+        color: $white;
+        background-color: $black;
     }
 }

@@ -75,32 +75,56 @@
 }
 
 // hover
-@mixin hoverable ($children: false, $background: false) {
+@mixin hoverable ($children: false, $background: false, $yellowify: false) {
     @include transition-eclair;
     cursor: pointer;
     &:hover  {
         @if ($background) {
-            background-color: $white;
-            color: $yellow;
+            @if ($yellowify) {
+                background-color: $yellow;
+                color: $white;
+            }
+            @else {
+                background-color: $black;
+                color: $white;
+            }
         }
         @else {
-            color: $white;
+            @if ($yellowify) {
+                color: $yellow;
+            }
+            @else {
+                color: $black;
+            }
         }
         @if ($children) {
             * {
                 @include transition-eclair;
                 @if ($background) {
-                    background-color: $white;
-                    color: $yellow;
+                    @if ($lighten) {
+                        background-color: $yellow;
+                        color: $black;
+                    }
+                    @else {
+                        background-color: $black;
+                        color: $white;
+                    }
                 }
-                color: $white;
+                @else {
+                    @if ($lighten) {
+                        color: $yellow;
+                    }
+                    @else {
+                        color: $black;
+                    }
+                }
             }
         }
     }
 }
 
 // overlay after
-@mixin overlay-after ($bg: #333, $opacity: .3, $z-index: -1) {
+@mixin overlay-after ($bg: $black, $opacity: .3, $z-index: -1) {
     z-index: $z-index;
     position: relative;
     &::after {
@@ -115,7 +139,7 @@
         z-index: $z-index + 1;
     }
     * {
-        z-index: $z-index + 2;
+        z-index: $z-index + 3;
     }
 }
 

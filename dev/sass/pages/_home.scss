@@ -1,17 +1,3 @@
-.three-elements {
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    @include inner-spacing ($unit: 2);
-}
-
-.four-elements {
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    @include inner-spacing ($unit: 2);
-}
-
 .destinations {
     .img-wrapper {
         position: relative;
@@ -27,6 +13,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            z-index: 1;
         }
         a {
             background-color: $yellow;
@@ -40,15 +27,34 @@
             a {
                 opacity: 1;
             }
+            &:after {
+                opacity: .3;
+            }
+        }
+        // j'avais un p*** de mixin overlay, MAIS à chaque fois que je
+        // l'utilise ça casse le hover. Donc je retape le code des overlays
+        // et je suis un peu déçu de manquer de temps pour débugguer ça :(
+        &:after {
+            content: '';
+            position: absolute;
+            background-color: $black;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            z-index: 0;
+            @include transition-eclair;
         }
     }
 }
 
 .prices {
-    background-image: url(../../img/graphics/world.png);
+    background-image: url(../img/graphics/world.png);
     h3 {
         @include inner-spacing;
         border-bottom: 1px solid $yellow;
+        background-color: $white;
     }
     .price-table {
         display: grid;
