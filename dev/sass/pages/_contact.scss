@@ -68,3 +68,13 @@
         }
     }
 }
+
+// ce truc est bizarre, je le retire mais je ne sais pas ce qui
+// est arrivé à ce champ de formulaire
+.contact {
+    footer {
+        form {
+            display: none;
+        }
+    }
+}

@@ -23,11 +23,6 @@ footer {
             padding: calc($space * 2) calc($space * 2);
         }
     }
-    form {
-        input {
-            color: $white;
-        }
-    }
     // premier footer
     // la section est en grid pour pouvoir s'empiler
     &.info>* {

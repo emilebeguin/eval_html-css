@@ -56,6 +56,10 @@
         border-bottom: 1px solid $yellow;
         background-color: $white;
     }
+    .package-list {
+        padding: calc($space * 2);
+        background-color: white;
+    }
     .price-table {
         display: grid;
         background-color: $white;
@@ -69,6 +73,7 @@
             font-weight: bold;
             text-align: center;
             background-color: $light;
+            @include hoverable($yellowify: true, $background: true);
         }
     }
 }

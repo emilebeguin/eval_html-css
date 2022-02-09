@@ -1,0 +1,64 @@
+.destinations {
+    .title {
+        text-align: center;
+        margin-bottom: calc($space * 3);
+        h2 {
+            margin-bottom: $space;
+        }
+    }
+}
+
+// disposition des cards hotel
+.destinations-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: calc($space * 2);
+    @media screen and (max-width: $wrapper-max) {
+        grid-template-columns: 1fr 1fr;
+    }
+    @media screen and (max-width: $tablet) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.hotel {
+    width: 100%;
+    background-color: $white;
+    .title-wrapper {
+        display: grid;
+        grid-template-columns: 1.75fr .5fr;
+        margin: calc($space *.5) 0;
+    }
+    .text-wrapper {
+        padding: 0 calc($space * 2) calc($space * 2);
+    }
+    h3, .view {
+        margin: calc($space *.5) 0;
+    }
+    .stars {
+        font-size: calc($space * 1.75);
+        &::before {
+            letter-spacing: 1px;
+        }
+    }
+    .view {
+        grid-column: span 2;
+    }
+    .table {
+        display: grid;
+        grid-template-columns: 4fr 1fr;
+        p {
+            border-bottom: 1px solid $medium;
+            padding: calc($space * .5) 0;
+        }
+        p:nth-of-type(2n) {
+            text-align: right;
+        }
+        p:nth-last-child(1), p:nth-last-child(2) {
+            border-bottom: 0;
+        }
+        a {
+            padding: .5rem 1rem;
+        }
+    }
+}
