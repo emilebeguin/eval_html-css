@@ -12,7 +12,7 @@
 .button {
     padding: $space calc(1em * 2);
     display: block;
-    width: fit-content;
+    width: max-content;
     &.look {
         color: $white;
         background-color: $yellow;

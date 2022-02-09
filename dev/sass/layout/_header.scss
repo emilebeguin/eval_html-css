@@ -1,11 +1,20 @@
 .home header.bg {
     background-image: url(../img/photos/home/hero-home.jpg);
     height: 100vh;
+    @media screen and (max-width: $tablet) {
+        height: 65vh;
+    }
     .wrapper {
         justify-content: center;
     }
     .title {
         width: 30%;
+        @media screen and (max-width: $small-screen) {
+            width: 75%;
+        }
+        @media screen and (max-width: $tablet) {
+            width: 100%;
+        }
     }
 }
 

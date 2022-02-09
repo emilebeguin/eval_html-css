@@ -2,7 +2,7 @@
 // je préfère les couleurs "rondes"
 $black: #011; // remplace le #04091e
 $dark: #222;
-$grey: #444;
+$grey: #666;
 $medium: #dde;
 $light: #f9f9ff; // couleur non websafe
 $white: #fff;
@@ -16,6 +16,7 @@ $font-elastic: calc(16px + .16vw);
 $title-elastic: calc(20px + .20vw);
 
 // responsive breakpoints
+$wrapper-max: 1140px;
 $small-screen: 992px;
 $tablet: 768px;
 $smartphone: 575px

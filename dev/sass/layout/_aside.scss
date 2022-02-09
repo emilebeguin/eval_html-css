@@ -1,5 +1,8 @@
 aside {
     width: 350px;
+    @media screen and (max-width: $small-screen) {
+        width: calc(100% - $space);
+    }
     padding: calc($space * 1.2);
     margin-top: calc($space * .9);
     // styles généraux
@@ -122,12 +125,5 @@ aside {
             margin-left: calc(1px - $space - 1px);
             box-sizing: border-box;
         }
-    }
-}
-
-.tag-cloud {
-    a {
-        text-transform: initial;
-        padding: calc($space * .75) calc($space * 1);
     }
 }

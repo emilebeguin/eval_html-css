@@ -72,3 +72,20 @@
         }
     }
 }
+
+.latest {
+    .three-elements {
+        @media screen and (max-width: $small-screen) {
+            grid-template-columns: 1fr 1fr;
+            .post:nth-of-type(n+3) {
+                display: none;
+            }
+        }
+        @media screen and (max-width: $smartphone) {
+            grid-template-columns: 1fr;
+            .post:nth-of-type(n+2) {
+                display: none;
+            }
+        }
+    }
+}
