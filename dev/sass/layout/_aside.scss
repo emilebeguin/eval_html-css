@@ -1,5 +1,8 @@
 aside {
     width: 350px;
+    @media screen and (max-width: $small-screen) {
+        width: calc(100% - $space);
+    }
     padding: calc($space * 1.2);
     margin-top: calc($space * .9);
     // styles généraux
@@ -24,13 +27,21 @@ aside {
             border: 0;
             width: 100%;
             background-color: $yellow;
+            color: $white;
+            font-weight: bold;
             &::placeholder {
                 color: $white;
                 opacity: 1;
+                font-weight: normal;
+            }
+            &:focus {
+                background-color: rgba($color: $yellow, $alpha: .25);
+                outline: 3px solid $yellow;
             }
         }
         input[type="submit"] {
             border: 0;
+            width: 50px;
             background-color: transparent;
             position: absolute;
             right: 0;
@@ -122,12 +133,5 @@ aside {
             margin-left: calc(1px - $space - 1px);
             box-sizing: border-box;
         }
-    }
-}
-
-.tag-cloud {
-    a {
-        text-transform: initial;
-        padding: calc($space * .75) calc($space * 1);
     }
 }

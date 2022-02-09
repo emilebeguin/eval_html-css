@@ -2,16 +2,24 @@
     a {
         display: inline-block;
         width: fit-content;
-        padding: calc($space * .25) calc($space * .75);
-        border: 1px solid $light;
+        padding: calc($space * .75) calc($space * 1);
+        border: 1px solid $medium;
         margin: calc($space * .75) calc($space * .25);
+        text-transform: initial;
         &:first-of-type {
             margin-left: 0;
+        }
+        &:hover {
+            border: 1px solid transparent;
         }
         @include hoverable ($background: true, $yellowify: true);
     }
 }
 
 .material-popout {
-    box-shadow: $medium 0px 8px 24px;
+    @include material-popout;
+}
+
+.material-popout-hover {
+    @include material-popout($on-hover: true);
 }

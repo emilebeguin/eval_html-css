@@ -1,20 +1,39 @@
-main > .wrapper {
-    display: grid;
-    grid-template-columns: 1fr 350px;
-    grid-template-areas:
-    "featured   aside"
-    "post-nav   aside"
-    "comments   aside"
-    ;
-    aside { grid-area: aside; }
-    .article { grid-area: featured; }
-    .post-navigation { grid-area: post-nav; }
-    .article { grid-area: featured; }
+.blog main {
+    background-color: $light;
+    &> .wrapper {
+        padding: 0 2vw;
+        display: grid;
+        grid-template-columns: 1fr 350px;
+        grid-template-areas:
+        "featured   aside"
+        "post-nav   aside"
+        "comments   aside"
+        ;
+        @media screen and (max-width: $small-screen) {
+            grid-template-columns: 100%;
+            grid-template-areas:
+            "featured"
+            "post-nav"
+            "comments"
+            "aside"
+            ;
+        }
+        aside { grid-area: aside; }
+        .article { grid-area: featured; }
+        .post-navigation { grid-area: post-nav; }
+        .article { grid-area: featured; }
+        // tous les enfants directs du main
+        // on un bord de séparation
+        &>* {
+            border: 1px solid $medium;
+            padding: $space;
+            margin: calc($space / 2);
+        }
+    }
 }
 
 .blog {
     .article {
-        margin-top: calc($space * 2);
         display: grid;
         grid-template-columns: 20% 1fr;
         grid-auto-rows: max-content;
@@ -24,6 +43,15 @@ main > .wrapper {
             "details  intro  "
             "quoted   quoted "
         ;
+        @media screen and (max-width: $smartphone) {
+            grid-template-columns: 100%;
+            grid-template-areas:
+            "fimage"
+            "details"
+            "title"
+            "intro"
+            "quoted"
+        }
         .featured-image { grid-area: fimage; }
         .details { grid-area: details; }
         .article-title { grid-area: title; }
@@ -47,8 +75,24 @@ main > .wrapper {
             display: flex;
             flex-direction: column;
             align-items: flex-end;
+            // le champ details vient se mettre au-dessus
+            // et change de structure
+            @media screen and (max-width: $smartphone) {
+                margin-top: $space;
+                height: calc($space * 10);
+                flex-wrap: wrap;
+                padding: 0 $space;
+                align-items: flex-start;
+            }
             &>* {
                 margin: $space 0;
+                @media screen and (max-width: $smartphone) {
+                    width: 40%;
+                    flex: 1 0 16%;
+                    justify-content: flex-start;
+                    text-align: left;
+                    margin: calc($space * .5) 0;
+                }
             }
             .author, .date, .views, .comments {
                 display: flex;
@@ -59,6 +103,11 @@ main > .wrapper {
             }
             .social {
                 width: 75%;
+                justify-content: space-between;
+                @media screen and (max-width: $smartphone) {
+                    width: 40%;
+                    padding-right: calc($space * 3);
+                }
             }
             .author {
                 &::after { content: '\f2c0'; }
@@ -127,11 +176,12 @@ main > .wrapper {
 .comments {
     .comment {
         grid-column: span 3;
+        padding: $space;
         .comment {
             padding-left: calc($space * 2);
         }
         display: grid;
-        grid-template-columns: calc($space * 5) 75% 1fr;
+        grid-template-columns: calc($space * 5) 3fr 1fr;
         .text-wrapper {
             padding: calc($space * .5) calc($space);
             .date {

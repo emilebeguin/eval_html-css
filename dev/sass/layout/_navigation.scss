@@ -8,6 +8,7 @@ nav {
         display: flex;
         gap: $space;
     }
+    z-index: 2;
 }
 
 .nav-row {
@@ -24,6 +25,9 @@ nav {
         background-color: rgba($color: $white, $alpha: .2);
         @include outer-spacing ($unit: 1);
         @include inner-spacing ($unit: 1);
+        @media screen and (max-width: $tablet) {
+            padding-right: calc($space * 2);
+            padding-left: calc($space * 2);
+        }
     }
 }
-

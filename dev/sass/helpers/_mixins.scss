@@ -288,3 +288,15 @@
         }
     }
 }
+
+@mixin material-popout ($on-hover: false) {
+    @if ($on-hover: true) {
+        @include transition-eclair;
+        &:hover {
+            box-shadow: $medium 0px 8px 24px;
+        }
+    }
+    @else {
+        box-shadow: $medium 0px 8px 24px;
+    }
+}

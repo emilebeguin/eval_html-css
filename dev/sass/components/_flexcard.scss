@@ -1,0 +1,42 @@
+// cartes présentant les articles de blog et services
+.service, .post {
+    .text-wrapper {
+        padding-top: calc($space * .5);
+        &>* {
+            padding-bottom: $space;
+        }
+        .intro, .desc {
+            color: $grey;
+        }
+    }
+}
+
+// animations générales
+.hoverable {
+    .img-wrapper img {
+        @include transition-eclair;
+    }
+    h1, h2, h3 {
+        @include hoverable($yellowify: true);
+    }
+}
+
+// effets sur la section services (other issues)
+.service {
+    &:hover {
+        cursor: pointer;
+        .img-wrapper img {
+            transform: rotate(8deg) scale(125%);
+        }
+    }
+}
+
+// effets sur la section "latest from our blog"
+.post {
+    &:hover {
+        cursor: pointer;
+        .img-wrapper img {
+            transform: scale(110%);
+        }
+    }
+}

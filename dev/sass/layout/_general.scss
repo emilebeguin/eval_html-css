@@ -1,6 +1,7 @@
 .wrapper {
     margin: 0 auto;
-    width: 1140px;
+    width: 100%;
+    max-width: 1140px;
 }
 
 // ajoute du padding dans les sections
@@ -10,6 +11,12 @@ div.container  {
 }
 section.container  {
     padding: calc($space * 6) calc($space * 6);
+    @media screen and (max-width: $small-screen) {
+        padding: calc($space * 4) calc($space * 4);
+    }
+    @media screen and (max-width: $tablet) {
+        padding: calc($space * 2) calc($space * 2);
+    }
 }
 
 // ajoute du padding
@@ -21,6 +28,7 @@ section.container  {
 .wrapper.nopad {
     padding-bottom: 0;
     padding-top: 0;
+    max-width: unset;
 }
 
 // toute section dont le contenu est centré
@@ -42,6 +50,13 @@ section.container  {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    position: relative;
+    img {
+        position: absolute;
+        object-fit: cover;
+        height: 100%;
+        object-position: center center;
+    }
 }
 
 // classes d'organisation visuelle des éléments
@@ -52,8 +67,17 @@ section.container  {
     flex-direction: row;
     &>* {
         width: 50%;
+        @media screen and (max-width: $tablet) {
+            width: 100%;
+            &.img-wrapper {
+                min-height: 30vh;
+            }
+        }
     }
     @include inner-spacing ($unit: 2);
+    @media screen and (max-width: $tablet) {
+        flex-direction: column;
+    }
 }
 
 .three-elements {
@@ -61,6 +85,9 @@ section.container  {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     @include inner-spacing ($unit: 2);
+    @media screen and (max-width: $smartphone) {
+        grid-template-columns: 100%;
+    }
 }
 
 .four-elements {
@@ -68,6 +95,12 @@ section.container  {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     @include inner-spacing ($unit: 2);
+    @media screen and (max-width: $small-screen) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    @media screen and (max-width: $smartphone) {
+        grid-template-columns: 100%;
+    }
 }
 
 .img-right, .img-left {
@@ -78,7 +111,10 @@ section.container  {
         align-items: center;
         justify-content: center;
         .text {
-            width: 50%;
+            max-width: 50%;
+            @media screen and (max-width: $wrapper-max) {
+                max-width: 100%;
+            }
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -93,6 +129,7 @@ section.container  {
 
 // images
 .img-wrapper {
+    overflow: hidden;
     img {
         width: 100%;
     }

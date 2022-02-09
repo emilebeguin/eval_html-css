@@ -12,7 +12,7 @@
 .button {
     padding: $space calc(1em * 2);
     display: block;
-    width: fit-content;
+    width: max-content;
     &.look {
         color: $white;
         background-color: $yellow;
@@ -27,6 +27,6 @@
         @include hoverable($background: true, $yellowify: true);
         color: $black;
         background-color: $white;
-        border: 1px solid $light;
+        border: 1px solid $medium;
     }
 }

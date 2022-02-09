@@ -56,6 +56,10 @@
         border-bottom: 1px solid $yellow;
         background-color: $white;
     }
+    .package-list {
+        padding: calc($space * 2);
+        background-color: white;
+    }
     .price-table {
         display: grid;
         background-color: $white;
@@ -69,6 +73,24 @@
             font-weight: bold;
             text-align: center;
             background-color: $light;
+            @include hoverable($yellowify: true, $background: true);
+        }
+    }
+}
+
+.latest {
+    .three-elements {
+        @media screen and (max-width: $small-screen) {
+            grid-template-columns: 1fr 1fr;
+            .post:nth-of-type(n+3) {
+                display: none;
+            }
+        }
+        @media screen and (max-width: $smartphone) {
+            grid-template-columns: 1fr;
+            .post:nth-of-type(n+2) {
+                display: none;
+            }
         }
     }
 }

@@ -5,20 +5,58 @@ footer {
     @include inner-spacing ($unit: 4);
     &:not(:last-of-type) { padding-bottom: 0; }
     &:not(:first-of-type) { padding-top: 0; }
+    &.container {
+        padding: calc($space * 6) calc($space * 6);
+        &:nth-of-type(1){
+            padding-bottom: 0;
+        }
+        &:nth-last-of-type(1){
+            padding-top: 0;
+        }
+        .wrapper {
+            gap: calc($space * 2)
+        }
+        @media screen and (max-width: $small-screen) {
+            padding: calc($space * 4) calc($space * 4);
+        }
+        @media screen and (max-width: $tablet) {
+            padding: calc($space * 2) calc($space * 2);
+        }
+    }
+    // premier footer
     // la section est en grid pour pouvoir s'empiler
     &.info>* {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         gap: $space;
+        @media screen and (max-width: $small-screen) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        @media screen and (max-width: $smartphone) {
+            grid-template-columns: 1fr;
+        }
     }
+
+    // second footer
     &.links>* {
         @include inner-spacing ($unit: 2);
         display: flex;
         justify-content: space-between;
         flex-direction: row-reverse;
+        @media screen and (max-width: $small-screen) {
+            // je fais exprès de mettre les réseaux sociaux
+            // au-dessus en smartphone parce que je trouve ça
+            // plus smart
+            flex-direction: column;
+        }
         border-top: 1px solid $dark;
-        a, span {
-            color: $yellow;
+        a {
+            @include hoverable($yellowify: true)
+        }
+        p {
+            a, span {
+                color: $yellow;
+            }
         }
         .social {
             display: flex;

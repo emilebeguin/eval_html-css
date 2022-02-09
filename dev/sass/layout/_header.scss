@@ -1,16 +1,28 @@
 .home header.bg {
     background-image: url(../img/photos/home/hero-home.jpg);
     height: 100vh;
+    @media screen and (max-width: $tablet) {
+        height: 65vh;
+    }
     .wrapper {
         justify-content: center;
     }
     .title {
         width: 30%;
+        @media screen and (max-width: $small-screen) {
+            width: 75%;
+        }
+        @media screen and (max-width: $tablet) {
+            width: 100%;
+        }
     }
 }
 
-.blog header.bg{
-    background-image: url(../img/photos/blog/hero-blog.jpg);
+.blog header.bg{ background-image: url(../img/photos/blog/hero-blog.jpg);}
+.contact header.bg{ background-image: url(../img/photos/contact/hero-contact.jpg);}
+.hotels header.bg{ background-image: url(../img/photos/hotels/hero-hotels.jpg);}
+
+body:not(.home) header.bg{
     height: 50vh;
     .wrapper {
         justify-content: center;
@@ -27,13 +39,14 @@
 
 
 header {
-    @include overlay-before ($bg: $black, $opacity: .6, $z-index: -3);
+    @include overlay-before ($bg: $black, $opacity: .6, $z-index: -1);
     .wrapper {
         display: flex;
         flex-direction: column;
         color: $white;
         height: 100%;
         .title {
+            z-index: 1;
             display: flex;
             flex-direction: column;
             &>* {
