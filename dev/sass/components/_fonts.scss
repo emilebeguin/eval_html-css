@@ -32,6 +32,6 @@ h1 {
     font-size: calc($title-elastic * .65);
 }
 
-input::placeholder {
+input::placeholder, textarea {
     font-family: 'Poppins', FontAwesome;
 }

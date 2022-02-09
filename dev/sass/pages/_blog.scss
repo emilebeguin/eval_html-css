@@ -1,15 +1,18 @@
-main > .wrapper {
-    display: grid;
-    grid-template-columns: 1fr 350px;
-    grid-template-areas:
-    "featured   aside"
-    "post-nav   aside"
-    "comments   aside"
-    ;
-    aside { grid-area: aside; }
-    .article { grid-area: featured; }
-    .post-navigation { grid-area: post-nav; }
-    .article { grid-area: featured; }
+main {
+    background-color: $light;
+    &> .wrapper {
+        display: grid;
+        grid-template-columns: 1fr 350px;
+        grid-template-areas:
+        "featured   aside"
+        "post-nav   aside"
+        "comments   aside"
+        ;
+        aside { grid-area: aside; }
+        .article { grid-area: featured; }
+        .post-navigation { grid-area: post-nav; }
+        .article { grid-area: featured; }
+    }
 }
 
 .blog {

@@ -8,6 +8,7 @@ nav {
         display: flex;
         gap: $space;
     }
+    z-index: 2;
 }
 
 .nav-row {

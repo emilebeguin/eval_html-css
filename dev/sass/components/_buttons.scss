@@ -27,6 +27,6 @@
         @include hoverable($background: true, $yellowify: true);
         color: $black;
         background-color: $white;
-        border: 1px solid $light;
+        border: 1px solid $medium;
     }
 }

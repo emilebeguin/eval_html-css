@@ -5,13 +5,10 @@ form {
     :nth-of-type(1) {flex-basis: 100%;}
     :nth-of-type(2) {flex-basis: 50px;}
     input, textarea {
+        width: 100%;
         height: calc($space * 3);
         background-color: transparent;
-        border-color:
-            rgba($color: $grey, $alpha: .4)
-            transparent
-            rgba($color: $grey, $alpha: .4)
-            rgba($color: $grey, $alpha: .4);
+        border-color: rgba($color: $grey, $alpha: .4);
         padding: $space;
         &:focus {
             outline: 1px solid $yellow;
@@ -21,8 +18,8 @@ form {
         }
     }
     input[type="submit"] {
-        aspect-ratio: 1;
         background-color: $yellow;
+        border: transparent;
         cursor: pointer;
     }
     svg {
@@ -32,14 +29,38 @@ form {
     }
 }
 
+footer {
+    form {
+        input, textarea {
+            border-right: transparent;
+        }
+        input[type="submit"] {
+            aspect-ratio: 1;
+        }
+    }
+}
+
+// formulaires du blog
 .blog {
     .leave-a-comment {
         form {
             display: grid;
             grid-template-columns: 50% 50%;
-            gap: $space;
+            @include inner-spacing;
+            input:not([type="submit"]), textarea {
+                background-color: $white;
+            }
+            .name *, .email * {
+                margin: 0 auto;
+                border: 0;                    
+            }
             .subject, .message, .submit {
+                width: 100%;
                 grid-column: span 2;
+                * {
+                    margin: 0 auto;
+                    border: 0;
+                }
             }
         }
     }
