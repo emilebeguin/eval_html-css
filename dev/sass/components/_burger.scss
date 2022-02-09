@@ -1,7 +1,29 @@
+nav .highlight {
+    .burger {
+        font-family: FontAwesome;
+        font-size: 200%;
+        cursor: pointer;
+        @include hoverable($yellowify: true);
+        display: none;
+        // le burger ne s'affiche qu'au palier tablet
+        @media screen and (max-width: $tablet) {
+            display: inline-block;
+        }
+    }
+    .site-navigation {
+        // disparait pour laisser la place au burger
+        @media screen and (max-width: $tablet) {
+            display: none;
+        }
+    }
+}
+
+
 .burger-reveal {
     position: fixed;
     z-index: 999;
     height: 100%;
+    left: -100%;
     width: 100%;
     margin: 0;
     padding: 0;
@@ -10,29 +32,35 @@
         position: relative;
         width: 400px;
         height: 100%;
-        padding: calc($space * 2);
+        padding: calc($space * 3);
         background-color: $black;
         opacity: 1;
         .site-navigation {
             display: flex;
             flex-direction: column;
+            // le menu aside a une plus grande taille
             font-size: calc($title-elastic * 1.2);
+            a {
+                @include hoverable($yellowify: true);
+            }
         }
     }
-    .click-out {
+    .hide-side {
         position: relative;
         width: 100%;
         height: 100%;
         background-color: $black;
-        opacity: .3;
+        opacity: 0;
+        @include transition-eclair($delai: .3s);
     }
+    @include transition-eclair;
+    // classe affichant la side nav
     &.active {
         width: 100%;
-        &::before {
-            visibility: visible;
-        }
-        .side {
-            right: 0;
+        left: 0;
+        .hide-side {
+            opacity: .5;
+            transition: opacity ease-in-out .3s;
         }
     }
 }

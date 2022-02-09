@@ -27,13 +27,21 @@ aside {
             border: 0;
             width: 100%;
             background-color: $yellow;
+            color: $white;
+            font-weight: bold;
             &::placeholder {
                 color: $white;
                 opacity: 1;
+                font-weight: normal;
+            }
+            &:focus {
+                background-color: rgba($color: $yellow, $alpha: .25);
+                outline: 3px solid $yellow;
             }
         }
         input[type="submit"] {
             border: 0;
+            width: 50px;
             background-color: transparent;
             position: absolute;
             right: 0;

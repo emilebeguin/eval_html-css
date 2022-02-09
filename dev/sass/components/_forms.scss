@@ -17,6 +17,9 @@ form {
             color: $grey;
         }
     }
+    textarea {
+        resize: vertical;
+    }
     input[type="submit"] {
         background-color: $yellow;
         border: transparent;

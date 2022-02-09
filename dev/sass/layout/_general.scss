@@ -19,19 +19,6 @@ section.container  {
     }
 }
 
-footer.container {
-    padding: calc($space * 6) calc($space * 6);
-    .wrapper {
-        gap: calc($space * 2)
-    }
-    @media screen and (max-width: $small-screen) {
-        padding: calc($space * 4) calc($space * 4);
-    }
-    @media screen and (max-width: $tablet) {
-        padding: calc($space * 2) calc($space * 2);
-    }
-}
-
 // ajoute du padding
 .pad {
     padding: calc($space * 3);

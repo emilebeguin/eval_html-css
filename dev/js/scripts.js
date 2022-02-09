@@ -10,7 +10,7 @@ let sideNav = document.createElement("nav");
 sideNav.classList.add('side');
 // partie cliquable pour sortir
 let clickout = document.createElement("div");
-clickout.classList.add('click-out');
+clickout.classList.add('hide-side');
 
 // construction du side
 sideWrapper.appendChild(sideNav);
@@ -18,12 +18,18 @@ sideWrapper.appendChild(clickout);
 sideNav.appendChild(navlinks);
 document.body.insertBefore(sideWrapper, document.body.firstChild);
 
-let showSide = document.querySelectorAll('.burger');
+let showSide = document.querySelectorAll('.show-side');
+let hideSide = document.querySelectorAll('.hide-side');
 
 // event listeners
 showSide.forEach(clicker => {
     clicker.addEventListener('click', function() {
+        sideWrapper.classList.add("active");
+    });
+});
+hideSide.forEach(clicker => {
+    clicker.addEventListener('click', function() {
         console.log("hello");
-        sideWrapper.classList.toggle("active");
+        sideWrapper.classList.remove("active");
     });
 });

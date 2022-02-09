@@ -18,8 +18,10 @@
     }
 }
 
-.blog header.bg{
-    background-image: url(../img/photos/blog/hero-blog.jpg);
+.blog header.bg{ background-image: url(../img/photos/blog/hero-blog.jpg);}
+.contact header.bg{ background-image: url(../img/photos/contact/hero-contact.jpg);}
+
+:not(.home) header.bg{
     height: 50vh;
     .wrapper {
         justify-content: center;

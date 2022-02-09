@@ -39,9 +39,10 @@
                 </div>
                 <div class="site-navigation">
                     <a href="index.html" title="to Home">Home</a>
-                    <a href="#" title="to Hotels">Hotels</a>
-                    <a href="#" title="to Contacts">Reservation</a>
+                    <a href="hotels.html" title="to Hotels">Hotels</a>
+                    <a href="contact.html" title="to Contacts">Reservation</a>
                 </div>
+                <div class="burger show-side">&#xf0c9;</div>
             </div>
         </div>
     </nav>
@@ -188,7 +189,7 @@
                 <div class="section-title">
                     <h3>Leave a comment</h3>
                 </div>
-                <form class="two-cols" action="contact" method="get">
+                <form action="comment" method="get">
                     <div class="name">
                         <input type="text" id="name" name="name" placeholder="Enter Name">
                     </div>
@@ -327,7 +328,8 @@
             </aside>
         </div>
     </main>
-    <footer class="info">
+    <!-- footer séparé parce qu'on veut peut-être qu'il ne se répète pas sur toutes les pages -->
+    <footer class="info container">
         <div class="wrapper">
             <div class="about">
                 <h3>About agency</h3>
@@ -349,7 +351,7 @@
             <div class="abo">
                 <h3>Newsletter</h3>
                 <p>For business professionals caught between high OEM price and mediocre print and graphic output.</p>
-                <form action="get">
+                <form action="post">
                     <input type="text" placeholder="Email Address">
                     <input type="submit" class="arrow-send" value="">
                     <!-- je n'ai remarqué que trop tard qu'en fait c'était juste du fontawesome ^^ -->
@@ -382,7 +384,7 @@
             </div>
         </div>
     </footer>
-    <footer class="links">
+    <footer class="links container">
         <div class="wrapper">
             <div class="social">
                 <a href="http://www.facebook.com" title="Facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a>
@@ -391,7 +393,7 @@
                 <a href="http://www.behance.com" title="Behance"><i class="fa fa-behance" aria-hidden="true"></i></a>
             </div>
             <div class="credits">
-                <p style="font-family: Arial, Helvetica, sans-serif;">Copyright © 2022 All rights reserved | This template is made with <span class="heart">love</span> by <a href="#" title="Visit Colorlib website">Colorlib</a></p>
+                <p>Copyright © 2022 All rights reserved | This template is made with <span class="heart">love</span> by <a href="#" title="Visit Colorlib website">Colorlib</a></p>
             </div>
         </div>
     </footer>

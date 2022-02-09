@@ -1,0 +1,70 @@
+.contact-infos {
+    .icon p {
+        font-family: FontAwesome;
+    }
+    .wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-areas:
+            "address name    message"
+            "phone   email   message"
+            "mail    subject message"
+            "submit  submit  submit"
+        ;
+        @media screen and (max-width: $tablet) {
+            grid-template-columns: 1fr;
+            grid-template-areas: 
+            "address"
+            "phone"
+            "mail"
+            "name"
+            "email"
+            "subject"
+            "message"
+            "submit"
+            ;
+            .mail {
+                margin-bottom: calc($space * 2);
+            }
+        }
+        .address {grid-area: address;}
+        .phone {grid-area: phone;}
+        .mail {grid-area: mail;}
+        .name {grid-area: name;}
+        .email {grid-area: email;}
+        .subject {grid-area: subject;}
+        .message {grid-area: message;}
+        .submit {grid-area: submit;}
+        &>div {
+            padding: calc($space * .5);
+            padding-top: calc($space * .1);
+        }
+    }
+    input, textarea {
+        height: 100%;
+        background-color: $white;
+    }
+    .info {
+        display: grid;
+        grid-template-columns: calc(20px + $space * 2) 1fr;
+        grid-template-areas:
+        "icon heading"
+        "icon sub    "
+        ;
+        .icon {grid-area: icon;}
+        .heading {grid-area: heading;}
+        .sub {grid-area: sub;}
+    }
+    .icon {
+        font-size: calc(14px + $space * 1.4);
+        color: $grey;
+    }
+    .submit {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        input {
+            text-transform: uppercase;
+        }
+    }
+}
