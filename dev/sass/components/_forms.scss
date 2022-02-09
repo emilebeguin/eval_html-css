@@ -47,6 +47,10 @@ footer {
             display: grid;
             grid-template-columns: 50% 50%;
             @include inner-spacing;
+            div {
+                padding: 0 $space;
+                padding-left: 0;
+            }
             input:not([type="submit"]), textarea {
                 background-color: $white;
             }

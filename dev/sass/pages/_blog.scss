@@ -12,6 +12,13 @@ main {
         .article { grid-area: featured; }
         .post-navigation { grid-area: post-nav; }
         .article { grid-area: featured; }
+        // tous les enfants directs du main
+        // on un bord de séparation
+        &>* {
+            border: 1px solid $medium;
+            padding: $space;
+            margin: calc($space / 2);
+        }
     }
 }
 
@@ -130,6 +137,7 @@ main {
 .comments {
     .comment {
         grid-column: span 3;
+        padding: $space;
         .comment {
             padding-left: calc($space * 2);
         }
